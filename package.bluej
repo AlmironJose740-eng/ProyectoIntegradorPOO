@@ -1,6 +1,9 @@
 #BlueJ package file
-editor.fx.0.height=736
-editor.fx.0.width=1382
+dependency1.from=Libro
+dependency1.to=Prestamo
+dependency1.type=UsesDependency
+editor.fx.0.height=1048
+editor.fx.0.width=1936
 editor.fx.0.x=-8
 editor.fx.0.y=-8
 objectbench.height=120
@@ -13,7 +16,7 @@ package.editor.x=0
 package.editor.y=0
 package.frame.height=736
 package.frame.width=1382
-package.numDependencies=0
+package.numDependencies=1
 package.numTargets=7
 package.showExtends=true
 package.showUses=true
