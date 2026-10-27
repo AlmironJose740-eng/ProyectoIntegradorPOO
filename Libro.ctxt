@@ -1,10 +1,24 @@
 #BlueJ class context
-#Tue Oct 27 12:06:20 ART 2026
+#Tue Oct 27 20:42:28 ART 2026
 comment0.target=Libro
-comment0.text=\r\n Write a description of class Libro here.\r\n \r\n @author (your name) \r\n @version (a version number or a date)\r\n
-comment1.target=Libro()
-comment1.text=\r\n Constructor for objects of class Libro\r\n
-comment2.params=y
-comment2.target=int sampleMethod(int)
-comment2.text=\r\n An example of a method - replace this comment with your own\r\n \r\n @param  y   a sample parameter for a method\r\n @return     the sum of x and y \r\n
-numComments=3
+comment1.params=p_titulo p_edicion p_editorial p_anio p_prestamos
+comment1.target=Libro(java.lang.String, int, java.lang.String, int, java.util.ArrayList)
+comment10.target=int getAnio()
+comment11.target=java.util.ArrayList getPrestamos()
+comment12.target=boolean prestado()
+comment13.target=Prestamo ultimoPrestamo()
+comment14.target=java.lang.String toString()
+comment2.params=p_titulo
+comment2.target=void setTitulo(java.lang.String)
+comment3.params=p_edicion
+comment3.target=void setEdicion(int)
+comment4.params=p_editorial
+comment4.target=void setEditorial(java.lang.String)
+comment5.params=p_anio
+comment5.target=void setAnio(int)
+comment6.params=p_prestamos
+comment6.target=void setPrestamos(java.util.ArrayList)
+comment7.target=java.lang.String getTitulo()
+comment8.target=int getEdicion()
+comment9.target=java.lang.String getEditorial()
+numComments=15

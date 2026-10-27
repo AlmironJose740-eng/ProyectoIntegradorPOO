@@ -1,33 +1,77 @@
-
 /**
  * Write a description of class Libro here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Libro
-{
-    // instance variables - replace the example below with your own
-    private int x;
+import java.util.*;
 
-    /**
-     * Constructor for objects of class Libro
-     */
-    public Libro()
-    {
-        // initialise instance variables
-        x = 0;
+public class Libro{
+    private String titulo;
+    private int edicion;
+    private String editorial;
+    private int anio;
+    private ArrayList<Prestamo> prestamos;
+    
+    public Libro(String p_titulo, int p_edicion, String p_editorial, int p_anio, ArrayList<Prestamo> p_prestamos){
+        this.setTitulo(p_titulo);
+        this.setEdicion(p_edicion);
+        this.setEditorial(p_editorial);
+        this.setAnio(p_anio);
+        this.setPrestamos(p_prestamos);
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    
+    private void setTitulo(String p_titulo){
+        this.titulo = p_titulo;
     }
+    
+    private void setEdicion(int p_edicion){
+        this.edicion = p_edicion;
+    }
+    
+    private void setEditorial(String p_editorial){
+        this.editorial = p_editorial;
+    }
+    
+    private void setAnio(int p_anio){
+        this.anio = p_anio;
+    }
+    
+    private void setPrestamos(ArrayList<Prestamo> p_prestamos){
+        this.prestamos = p_prestamos;
+    }
+    
+    public String getTitulo(){
+        return this.titulo;
+    }
+    
+    public int getEdicion(){
+        return this.edicion;
+    }
+    
+    public String getEditorial(){
+        return this.editorial;
+    }
+    
+    public int getAnio(){
+        return this.anio;
+    }
+    
+    public ArrayList<Prestamo> getPrestamos(){
+        return this.prestamos;
+    }
+    
+    public boolean prestado(){
+        
+    }
+    
+    public Prestamo ultimoPrestamo(){
+        
+    }
+    
+    public String toString(){
+        return "Titulo: " + this.getTitulo();
+    }
+    
+    
 }
