@@ -1,33 +1,51 @@
-
 /**
- * Write a description of class Docente here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Docente
-{
-    // instance variables - replace the example below with your own
-    private int x;
+ * representa a un socio de tipo Docente en el sistema de la biblioteca
+ * @author Gonzalo Uriel Castillo
+ * @version 1
+ */ 
+ 
+public class Docente extends Socio {
+    
+    //atributos privados
+    private String area;
 
-    /**
-     * Constructor for objects of class Docente
-     */
-    public Docente()
-    {
-        // initialise instance variables
-        x = 0;
+    //constructor
+    public Docente(int p_dniSocio, String p_nombre, String p_area) {
+        super(p_dniSocio, p_nombre, 5);
+        this.setArea(p_area);
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    //setters
+    private void setArea(String p_area) {
+        this.area = p_area;
+    }
+
+    //getters
+    public String getArea() {
+        return this.area;
+    }
+
+    //metodos
+    public void cambiarDiasDePrestamo(int p_dias) {
+        this.setDiasPrestamo(this.getDiasPrestamo() + p_dias);
+    }
+
+    public boolean esResponsable() {
+        for (Prestamo p : this.getPrestamos()) {
+            if (p.vencido(p.getFechaDevolucion())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public String soyDeLaClase() {
+        return "Docente";
+    }
+
+    @Override
+    public boolean puedePedir() {
+        return super.puedePedir();
     }
 }
