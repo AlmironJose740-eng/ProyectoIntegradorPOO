@@ -1,5 +1,5 @@
 /**
- * representa un cargo docente en una materia
+ * representa a un socio de tipo Docente en el sistema de la biblioteca
  * @author Gonzalo Uriel Castillo
  * @version 1
  */ 
