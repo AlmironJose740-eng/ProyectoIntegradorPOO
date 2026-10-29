@@ -21,11 +21,19 @@ public abstract class Socio{
     * @param p_nombre Nombre del socio.
     * @param p_dias Cantidad de días permitidos de préstamo.
     */
+   
+   public Socio(int p_dni,String p_nombre){
+        this.setDniSocio(p_dni);
+        this.setNombre(p_nombre);
+        this.setDiasPrestamo(0);
+        this.setListaPrestamos(new ArrayList<Prestamo>());
+   }
+   
    public Socio(int p_dni,String p_nombre,int p_dias){
         this.setDniSocio(p_dni);
         this.setNombre(p_nombre);
         this.setDiasPrestamo(p_dias);
-        this.listaPrestamos=new ArrayList<Prestamo>(); 
+        this.setListaPrestamos(new ArrayList<Prestamo>());
    }
    
    /**
@@ -78,7 +86,7 @@ public abstract class Socio{
     * 
     * @param p_dias Nueva cantidad de días de préstamo.
     */
-   private void setDiasPrestamo(int p_dias){
+   protected void setDiasPrestamo(int p_dias){
         this.diasPrestamo=p_dias;
    }
    
@@ -101,7 +109,6 @@ public abstract class Socio{
    }
    
    // metodos 
-   
    /**
     * Agrega un préstamo a la lista de préstamos del socio.
     * 
@@ -129,9 +136,7 @@ public abstract class Socio{
     * @return int con el total de libros prestados.
     */
    public int cantLibrosPrestados(){
-        
         int cantidad=0;
-        
         for(Prestamo e: this.getListaPrestamos()){
             for(Libro a: e.getListaLibro()){
                 cantidad++;
@@ -158,7 +163,7 @@ public abstract class Socio{
     */
    public boolean puedePedir(){
         //aca pongo false dado que puedePedir es un metodo que es heredado a docente y estudiante por lo tanto cada sub clase 
-        // la debe re escribir e implementar 
+        // la debe re escribir  
         return false;
    }
    

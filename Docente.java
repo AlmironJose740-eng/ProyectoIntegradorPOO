@@ -46,6 +46,10 @@ public class Docente extends Socio {
 
     @Override
     public boolean puedePedir() {
-        return super.puedePedir();
+        if(this.esResponsable()){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

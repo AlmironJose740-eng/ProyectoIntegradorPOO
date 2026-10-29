@@ -98,7 +98,7 @@ public class Prestamo{
      * @return true si se removió correctamente, false en caso contrario.
      */
     public boolean QuitarLibro(Libro p_libro){
-        return this.getListalibro().remove(p_libro);
+        return this.getListaLibro().remove(p_libro);
     }
     
      
@@ -125,7 +125,7 @@ public class Prestamo{
             return true;
         }
         
-        
+        return false;
     }
     
     /**
@@ -145,7 +145,7 @@ public class Prestamo{
         
         Libro libro;
         Socio socio;
-        return "\nRetiro: " + anio + "/" + mes + "/" + dia +"/" +"-\tDevolucion:"+anioDev+"/"+mesDev+"/"+diaDev+"\nLibro:"+libro.getNombre()+"\nSocio:"+socio.getNombre();
+        return "\nRetiro: " + anio + "/" + mes + "/" + dia +"/" +"-\tDevolucion:"+anioDev+"/"+mesDev+"/"+diaDev+"\nLibro:"+libro.getTitulo()+"\nSocio:"+socio.getNombre();
     }
     
     

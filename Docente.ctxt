@@ -1,10 +1,15 @@
 #BlueJ class context
-#Wed Oct 28 20:32:30 ART 2026
+#Thu Oct 29 18:46:46 ART 2026
 comment0.target=Docente
-comment0.text=\r\n Write a description of class Docente here.\r\n \r\n @author (your name) \r\n @version (a version number or a date)\r\n
-comment1.target=Docente()
-comment1.text=\r\n Constructor for objects of class Docente\r\n
-comment2.params=y
-comment2.target=int sampleMethod(int)
-comment2.text=\r\n An example of a method - replace this comment with your own\r\n \r\n @param  y   a sample parameter for a method\r\n @return     the sum of x and y \r\n
-numComments=3
+comment0.text=\r\n representa a un socio de tipo Docente en el sistema de la biblioteca\r\n @author Gonzalo Uriel Castillo\r\n @version 1\r\n
+comment1.params=p_dniSocio p_nombre p_area
+comment1.target=Docente(int, java.lang.String, java.lang.String)
+comment2.params=p_area
+comment2.target=void setArea(java.lang.String)
+comment3.target=java.lang.String getArea()
+comment4.params=p_dias
+comment4.target=void cambiarDiasDePrestamo(int)
+comment5.target=boolean esResponsable()
+comment6.target=java.lang.String soyDeLaClase()
+comment7.target=boolean puedePedir()
+numComments=8
