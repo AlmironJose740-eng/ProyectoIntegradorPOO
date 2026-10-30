@@ -1,10 +1,37 @@
 #BlueJ class context
-#Tue Oct 27 12:06:20 ART 2026
+#Thu Oct 29 19:09:51 ART 2026
 comment0.target=Prestamo
-comment0.text=\r\n Write a description of class Prestamo here.\r\n \r\n @author (your name) \r\n @version (a version number or a date)\r\n
-comment1.target=Prestamo()
-comment1.text=\r\n Constructor for objects of class Prestamo\r\n
-comment2.params=y
-comment2.target=int sampleMethod(int)
-comment2.text=\r\n An example of a method - replace this comment with your own\r\n \r\n @param  y   a sample parameter for a method\r\n @return     the sum of x and y \r\n
-numComments=3
+comment0.text=\r\n Representa un pr\u00E9stamo de biblioteca, el cual incluye las fechas de retiro y devoluci\u00F3n,\r\n as\u00ED como la colecci\u00F3n de libros asociados.\r\n \r\n @author Lautaro Escalante\r\n @version 28/10/2026\r\n
+comment1.params=p_fechaR p_fechaDev
+comment1.target=Prestamo(java.util.Calendar, java.util.Calendar)
+comment1.text=\r\n Constructor para la clase Prestamo que inicializa las fechas de retiro y devoluci\u00F3n,\r\n y crea una lista de libros vac\u00EDa.\r\n \r\n @param p_fechaR Objeto Calendar que representa la fecha de retiro.\r\n @param p_fechaDev Objeto Calendar que representa la fecha de devoluci\u00F3n.\r\n
+comment10.params=p_fecha
+comment10.target=void registrarFechaDevolucion(java.util.Calendar)
+comment10.text=\r\n Registra o actualiza la fecha de devoluci\u00F3n del pr\u00E9stamo.\r\n \r\n @param p_fecha Objeto Calendar que representa la fecha de devoluci\u00F3n a registrar.\r\n
+comment11.params=p_fecha
+comment11.target=boolean vencio(java.util.Calendar)
+comment11.text=\r\n Verifica si el pr\u00E9stamo ha vencido respecto a una fecha dada.\r\n \r\n @param p_fecha Objeto Calendar con la fecha contra la cual se eval\u00FAa el vencimiento.\r\n @return true si la fecha supera el plazo l\u00EDmite, false en caso contrario.\r\n
+comment12.target=java.lang.String toString()
+comment12.text=\r\n Retorna una representaci\u00F3n en cadena de caracteres del pr\u00E9stamo,\r\n mostrando las fechas, libro y socio asociados.\r\n \r\n @return String con los datos formateados del pr\u00E9stamo.\r\n
+comment2.target=java.util.Calendar getFechaRetiro()
+comment2.text=\r\n Retorna la fecha de retiro del pr\u00E9stamo.\r\n \r\n @return Objeto Calendar con la fecha de retiro.\r\n
+comment3.params=p_fecha
+comment3.target=void setFechaRetiro(java.util.Calendar)
+comment3.text=\r\n Establece la fecha de retiro del pr\u00E9stamo.\r\n \r\n @param p_fecha Objeto Calendar con la nueva fecha de retiro.\r\n
+comment4.target=java.util.Calendar getFechaDevolucion()
+comment4.text=\r\n Retorna la fecha de devoluci\u00F3n del pr\u00E9stamo.\r\n \r\n @return Objeto Calendar con la fecha de devoluci\u00F3n.\r\n
+comment5.params=p_fechaDev
+comment5.target=void setFechaDevolucion(java.util.Calendar)
+comment5.text=\r\n Establece la fecha de devoluci\u00F3n del pr\u00E9stamo.\r\n \r\n @param p_fechaDev Objeto Calendar con la nueva fecha de devoluci\u00F3n.\r\n
+comment6.target=java.util.ArrayList getListaLibro()
+comment6.text=\r\n Retorna la lista de libros asociados al pr\u00E9stamo.\r\n \r\n @return ArrayList de objetos Libro.\r\n
+comment7.params=p_libros
+comment7.target=void setListaLibro(java.util.ArrayList)
+comment7.text=\r\n Establece la lista de libros del pr\u00E9stamo.\r\n \r\n @param p_libros ArrayList de objetos Libro a asignar.\r\n
+comment8.params=p_libro
+comment8.target=boolean AgregarLibro(Libro)
+comment8.text=\r\n Agrega un libro a la lista de libros del pr\u00E9stamo.\r\n \r\n @param p_libro Objeto Libro a agregar.\r\n @return true si se agreg\u00F3 correctamente, false en caso contrario.\r\n
+comment9.params=p_libro
+comment9.target=boolean QuitarLibro(Libro)
+comment9.text=\r\n Quita un libro de la lista de libros del pr\u00E9stamo.\r\n \r\n @param p_libro Objeto Libro a quitar.\r\n @return true si se removi\u00F3 correctamente, false en caso contrario.\r\n
+numComments=13

@@ -1,14 +1,22 @@
 #BlueJ class context
+<<<<<<< HEAD
 #Thu Oct 29 22:30:37 ART 2026
 comment0.target=Libro
 comment0.text=\r\n Representa un libro de la biblioteca, almacenando sus datos\r\n y el historial de pr\u00E9stamos realizados.\r\n\r\n @author Valentin Aguirre\r\n @version 1.0\r\n
 comment1.params=p_titulo p_edicion p_editorial p_anio
 comment1.target=Libro(java.lang.String, int, java.lang.String, int)
 comment1.text=\r\n Constructor que inicializa los datos del libro y crea una lista\r\n de pr\u00E9stamos vac\u00EDa.\r\n\r\n @param p_titulo T\u00EDtulo del libro.\r\n @param p_edicion Edici\u00F3n del libro.\r\n @param p_editorial Editorial que public\u00F3 el libro.\r\n @param p_anio A\u00F1o de publicaci\u00F3n del libro.\r\n
+=======
+#Thu Oct 29 19:29:00 ART 2026
+comment0.target=Libro
+comment1.params=p_titulo p_edicion p_editorial p_anio
+comment1.target=Libro(java.lang.String, int, java.lang.String, int)
+>>>>>>> f8735591c9742724eff5c335292217391acb6b67
 comment10.target=java.lang.String getEditorial()
 comment11.target=int getAnio()
 comment12.target=java.util.ArrayList getPrestamos()
 comment13.target=boolean prestado()
+<<<<<<< HEAD
 comment13.text=\r\n Verifica si el libro se encuentra actualmente prestado,\r\n consultando si el \u00FAltimo pr\u00E9stamo tiene fecha de devoluci\u00F3n.\r\n\r\n @return true si el libro est\u00E1 prestado o false si est\u00E1 disponible.\r\n
 comment14.target=Prestamo ultimoPrestamo()
 comment14.text=\r\n Obtiene el \u00FAltimo pr\u00E9stamo registrado del libro.\r\n Si no existen pr\u00E9stamos, devuelve null.\r\n\r\n @return El \u00FAltimo pr\u00E9stamo registrado o null si no hay pr\u00E9stamos.\r\n
@@ -17,6 +25,12 @@ comment15.text=\r\n Retorna una representaci\u00F3n en cadena de caracteres del 
 comment2.params=p_titulo p_edicion p_editorial p_anio p_prestamos
 comment2.target=Libro(java.lang.String, int, java.lang.String, int, java.util.ArrayList)
 comment2.text=\r\n Constructor que inicializa los datos del libro junto con una lista\r\n de pr\u00E9stamos recibida como par\u00E1metro.\r\n\r\n @param p_titulo T\u00EDtulo del libro.\r\n @param p_edicion Edici\u00F3n del libro.\r\n @param p_editorial Editorial que public\u00F3 el libro.\r\n @param p_anio A\u00F1o de publicaci\u00F3n del libro.\r\n @param p_prestamos Lista de pr\u00E9stamos del libro.\r\n
+=======
+comment14.target=Prestamo ultimoPrestamo()
+comment15.target=java.lang.String toString()
+comment2.params=p_titulo p_edicion p_editorial p_anio p_prestamos
+comment2.target=Libro(java.lang.String, int, java.lang.String, int, java.util.ArrayList)
+>>>>>>> f8735591c9742724eff5c335292217391acb6b67
 comment3.params=p_titulo
 comment3.target=void setTitulo(java.lang.String)
 comment4.params=p_edicion
