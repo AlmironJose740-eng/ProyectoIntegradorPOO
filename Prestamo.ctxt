@@ -1,5 +1,5 @@
 #BlueJ class context
-#Thu Oct 29 19:09:51 ART 2026
+#Thu Oct 29 22:44:42 ART 2026
 comment0.target=Prestamo
 comment0.text=\r\n Representa un pr\u00E9stamo de biblioteca, el cual incluye las fechas de retiro y devoluci\u00F3n,\r\n as\u00ED como la colecci\u00F3n de libros asociados.\r\n \r\n @author Lautaro Escalante\r\n @version 28/10/2026\r\n
 comment1.params=p_fechaR p_fechaDev

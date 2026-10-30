@@ -12,7 +12,6 @@ public class Libro {
     private String editorial;
     private int anio;
     private ArrayList<Prestamo> prestamos;
-<<<<<<< HEAD
 
     /**
      * Constructor que inicializa los datos del libro y crea una lista
@@ -24,17 +23,12 @@ public class Libro {
      * @param p_anio Año de publicación del libro.
      */
     public Libro(String p_titulo, int p_edicion, String p_editorial, int p_anio) {
-=======
-    
-    public Libro(String p_titulo, int p_edicion, String p_editorial, int p_anio){
->>>>>>> f8735591c9742724eff5c335292217391acb6b67
         this.setTitulo(p_titulo);
         this.setEdicion(p_edicion);
         this.setEditorial(p_editorial);
         this.setAnio(p_anio);
         this.setPrestamos(new ArrayList<Prestamo>());
     }
-<<<<<<< HEAD
 
     /**
      * Constructor que inicializa los datos del libro junto con una lista
@@ -47,10 +41,6 @@ public class Libro {
      * @param p_prestamos Lista de préstamos del libro.
      */
     public Libro(String p_titulo, int p_edicion, String p_editorial, int p_anio, ArrayList<Prestamo> p_prestamos) {
-=======
-    
-    public Libro(String p_titulo, int p_edicion, String p_editorial, int p_anio, ArrayList<Prestamo> p_prestamos){
->>>>>>> f8735591c9742724eff5c335292217391acb6b67
         this.setTitulo(p_titulo);
         this.setEdicion(p_edicion);
         this.setEditorial(p_editorial);
