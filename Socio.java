@@ -5,12 +5,12 @@ import java.util.ArrayList;
  * y la gestión de préstamos de un socio de la biblioteca.
  * 
  * @author Lautaro Escalante
- * @version 28/10/20206
+ * @version 30/10/2026
  */
 public abstract class Socio{
    private int dniSocio;
    private String nombre;
-   private int diasPrestamo;
+   protected int diasPrestamo;
    private ArrayList <Prestamo> listaPrestamos ;
    
    /**
@@ -21,20 +21,20 @@ public abstract class Socio{
     * @param p_nombre Nombre del socio.
     * @param p_dias Cantidad de días permitidos de préstamo.
     */
-   
-   public Socio(int p_dni,String p_nombre){
+ public Socio(int p_dni,String p_nombre){
         this.setDniSocio(p_dni);
         this.setNombre(p_nombre);
         this.setDiasPrestamo(0);
         this.setListaPrestamos(new ArrayList<Prestamo>());
    }
-   
-   public Socio(int p_dni,String p_nombre,int p_dias){
+    public Socio(int p_dni,String p_nombre,int p_dias){
         this.setDniSocio(p_dni);
         this.setNombre(p_nombre);
         this.setDiasPrestamo(p_dias);
         this.setListaPrestamos(new ArrayList<Prestamo>());
    }
+
+   
    
    /**
     * Retorna el DNI del socio.
@@ -109,6 +109,7 @@ public abstract class Socio{
    }
    
    // metodos 
+   
    /**
     * Agrega un préstamo a la lista de préstamos del socio.
     * 
@@ -116,8 +117,11 @@ public abstract class Socio{
     * @return true si se agregó correctamente, false en caso contrario.
     */
    public boolean AgregarPrestamo(Prestamo p_prestamo){
+       if(this.getListaPrestamos().contains(p_prestamo)){
         return this.getListaPrestamos().add(p_prestamo);
-   }
+       }
+       return false ;
+}
    
    /**
     * Quita un préstamo de la lista de préstamos del socio.
@@ -126,7 +130,12 @@ public abstract class Socio{
     * @return true si se removió correctamente, false en caso contrario.
     */
    public boolean QuitarPrestamo(Prestamo p_prestamo){
-        return this.getListaPrestamos().remove(p_prestamo);
+        if(this.getListaPrestamos().size() >= 1){
+            if(this.getListaPrestamos().contains(p_prestamo)){
+             return this.getListaPrestamos().remove(p_prestamo);
+            }
+       } 
+       return false; 
    }
    
    /**
@@ -136,11 +145,11 @@ public abstract class Socio{
     * @return int con el total de libros prestados.
     */
    public int cantLibrosPrestados(){
+        
         int cantidad=0;
+        
         for(Prestamo e: this.getListaPrestamos()){
-            for(Libro a: e.getListaLibro()){
-                cantidad++;
-            }
+            cantidad += e.getListaLibro().size();
         }
         
         return cantidad;
@@ -163,7 +172,7 @@ public abstract class Socio{
     */
    public boolean puedePedir(){
         //aca pongo false dado que puedePedir es un metodo que es heredado a docente y estudiante por lo tanto cada sub clase 
-        // la debe re escribir  
+        // la debe re escribir e implementar 
         return false;
    }
    
