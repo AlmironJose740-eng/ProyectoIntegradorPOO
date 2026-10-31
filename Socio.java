@@ -5,13 +5,13 @@ import java.util.ArrayList;
  * y la gestión de préstamos de un socio de la biblioteca.
  * 
  * @author Lautaro Escalante
- * @version 30/10/2026
+ * @version 30/10/2026 23:13
  */
 public abstract class Socio{
    private int dniSocio;
    private String nombre;
    protected int diasPrestamo;
-   private ArrayList <Prestamo> listaPrestamos ;
+   private ArrayList <Prestamo> Prestamos ;
    
    /**
     * Constructor para la clase abstracta Socio que inicializa el DNI, nombre,
@@ -25,13 +25,13 @@ public abstract class Socio{
         this.setDniSocio(p_dni);
         this.setNombre(p_nombre);
         this.setDiasPrestamo(0);
-        this.setListaPrestamos(new ArrayList<Prestamo>());
+        this.setPrestamos(new ArrayList<Prestamo>());
    }
     public Socio(int p_dni,String p_nombre,int p_dias){
         this.setDniSocio(p_dni);
         this.setNombre(p_nombre);
         this.setDiasPrestamo(p_dias);
-        this.setListaPrestamos(new ArrayList<Prestamo>());
+        this.setPrestamos(new ArrayList<Prestamo>());
    }
 
    
@@ -95,8 +95,8 @@ public abstract class Socio{
     * 
     * @return ArrayList de objetos Prestamo.
     */
-   public ArrayList<Prestamo> getListaPrestamos(){
-        return this.listaPrestamos; 
+   public ArrayList<Prestamo> getPrestamos(){
+        return this.Prestamos; 
    }
    
    /**
@@ -104,8 +104,8 @@ public abstract class Socio{
     * 
     * @param p_prestamo ArrayList de objetos Prestamo a asignar.
     */
-   private void setListaPrestamos(ArrayList <Prestamo> p_prestamo){
-        this.listaPrestamos=p_prestamo; 
+   private void setPrestamos(ArrayList <Prestamo> p_prestamo){
+        this.Prestamos=p_prestamo; 
    }
    
    // metodos 
@@ -116,9 +116,9 @@ public abstract class Socio{
     * @param p_prestamo Objeto Prestamo a agregar.
     * @return true si se agregó correctamente, false en caso contrario.
     */
-   public boolean AgregarPrestamo(Prestamo p_prestamo){
-       if(this.getListaPrestamos().contains(p_prestamo)){
-        return this.getListaPrestamos().add(p_prestamo);
+   public boolean agregarPrestamo(Prestamo p_prestamo){
+       if(this.getPrestamos().contains(p_prestamo)){
+        return this.getPrestamos().add(p_prestamo);
        }
        return false ;
 }
@@ -129,10 +129,10 @@ public abstract class Socio{
     * @param p_prestamo Objeto Prestamo a quitar.
     * @return true si se removió correctamente, false en caso contrario.
     */
-   public boolean QuitarPrestamo(Prestamo p_prestamo){
-        if(this.getListaPrestamos().size() >= 1){
-            if(this.getListaPrestamos().contains(p_prestamo)){
-             return this.getListaPrestamos().remove(p_prestamo);
+   public boolean quitarPrestamo(Prestamo p_prestamo){
+        if(this.getPrestamos().size() >= 1){
+            if(this.getPrestamos().contains(p_prestamo)){
+             return this.getPrestamos().remove(p_prestamo);
             }
        } 
        return false; 
@@ -148,8 +148,8 @@ public abstract class Socio{
         
         int cantidad=0;
         
-        for(Prestamo e: this.getListaPrestamos()){
-            cantidad += e.getListaLibro().size();
+        for(Prestamo e: this.getPrestamos()){
+            cantidad += e.getLibros().size();
         }
         
         return cantidad;
