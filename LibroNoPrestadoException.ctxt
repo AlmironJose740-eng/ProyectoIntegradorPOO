@@ -1,5 +1,5 @@
 #BlueJ class context
-#Fri Oct 30 18:34:10 ART 2026
+#Fri Oct 30 23:44:10 ART 2026
 comment0.target=LibroNoPrestadoException
 comment0.text=\r\n Write a description of class LibroNoPrestadoException here.\r\n \r\n @author (your name) \r\n @version (a version number or a date)\r\n
 comment1.params=p_mensaje

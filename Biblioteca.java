@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 /**
@@ -25,7 +27,9 @@ public class Biblioteca
         this.setSocios(new ArrayList<Socio>());
     }
 
-    public Biblioteca(String p_nombre,Libro p_libro,Socio p_socio){
+    /**
+     * Este constructor creo que sobra 
+     * public Biblioteca(String p_nombre,Libro p_libro,Socio p_socio){
         this.setNombre(p_nombre);
         this.setLibros(new ArrayList<Libro>());
         if(p_socio.soyDeLaClase().equalsIgnoreCase("Estudiante")){
@@ -36,7 +40,7 @@ public class Biblioteca
         this.setSocios(new ArrayList<Socio>());
         this.nuevoLibro(p_libro);
     }
-
+*/
     private void setNombre(String p_nombre){
         this.nombre = p_nombre;
     }
@@ -166,16 +170,54 @@ public class Biblioteca
         sd.append("Cantidad de socios del tipo Estudiante:").append(this.cantidadDeSociosPorTipo("Estudiante")).append("\n");
         sd.append("Cantidad de socios del tipo Docente:").append(this.cantidadDeSociosPorTipo("docente")).append("\n");
         sd.append("******************************************************").append("\n");
+        
+        return sd.toString();
     }
     
     
     
+    public String listaDeLibros(){
+        StringBuilder sd=new StringBuilder();
+        int contador=1;
+        sd.append("Lista de Libros:").append("\n");
+        
+        for(Libro l:this.getLibros()){
+            sd.append(contador).append(")").append(l.toString()).append(" ||Prestado: (").append(l.prestado() ? "si": "No").append(")\n");
+            contador++;
+        }
+        return sd.toString();
+    }
     
     
+    public String listaTitulos(){
+        Set<String> titulosUnicos=new LinkedHashSet<>();
+        
+        for(Libro l:this.getLibros()){
+            titulosUnicos.add(l.getTitulo());
+        }
+        
+        StringBuilder sd=new StringBuilder();
+        
+        sd.append("Lista de Titulos:").append("\n");
+        
+        for(String t:titulosUnicos){
+            sd.append("-Titulo:").append(t).append("\n");
+        }
+        
+        return sd.toString();
+    }
     
-    
-    
-    
+    public String listarDocentesResponsables(){
+        StringBuilder sd=new StringBuilder();
+        
+        sd.append("  Listar Docentes Responsables").append("\n");
+        
+        for(Docente d:this.docentesResponsables()){
+            sd.append("*").append(d.toString()).append("\n");
+        }
+        
+        return sd.toString();
+    }
     
     
     

@@ -1,4 +1,4 @@
-package biblioteca;  
+   
 
 /**
  * representa a un socio de tipo Docente en el sistema de la biblioteca

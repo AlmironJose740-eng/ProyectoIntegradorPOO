@@ -1,3 +1,5 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;  
 import java.util.*;
 
 /**
@@ -26,7 +28,7 @@ public class Prestamo{
     // == null
     // socio 
     //constructor general 
-    public Prestamo(Calendar p_fechaR,Calendar p_fechaDev){
+    /**public Prestamo(Calendar p_fechaR,Calendar p_fechaDev){
         this.setFechaRetiro(p_fechaR);
         this.setFechaDevolucion(p_fechaDev);
         this.setLibros(new ArrayList<Libro>()); 
@@ -41,7 +43,8 @@ public class Prestamo{
     }
     
     //constructor que recibe la fecha de devolucionb de un libro y lo asienta en socio
-    
+    */
+   
     //constructor recibe un objeto libro 
     public Prestamo(Socio p_socio,Calendar p_fechaDev, Libro p_libro){
         this.setFechaDevolucion(p_fechaDev);
@@ -167,17 +170,15 @@ public class Prestamo{
      * @return true si la fecha supera el plazo límite, false en caso contrario.
      */
     public boolean vencido(Calendar p_fecha){
-        Socio Aux;
+        Socio Aux=this.getSocio();
+        
         int diaTotal=this.getFechaRetiro().get(Calendar.DAY_OF_YEAR) + Aux.getDiasPrestamo();
-        int diaTotal=this.getFechaRetiro().get(Calendar.DAY_OF_YEAR) + getSocio().getDiasPrestamo();
         
         if(p_fecha.get(Calendar.DAY_OF_YEAR) > diaTotal ){
             return true;
-        }else {
-            return false; 
         }
         
-        
+        return false;
     }
     
     /**
