@@ -1,3 +1,5 @@
+package biblioteca; 
+
 /**
  * representa a un socio de tipo Estudiante en el sistema de la biblioteca
  * @author Gonzalo Uriel Castillo
