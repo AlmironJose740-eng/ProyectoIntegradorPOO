@@ -117,7 +117,7 @@ public class Prestamo{
      * @param p_fecha Objeto Calendar con la fecha contra la cual se evalúa el vencimiento.
      * @return true si la fecha supera el plazo límite, false en caso contrario.
      */
-    public boolean vencio(Calendar p_fecha){
+    public boolean vencido(Calendar p_fecha){
         Socio Aux;
         int diaTotal=this.getFechaRetiro().get(Calendar.DAY_OF_YEAR) + Aux.getDiasPrestamo();
         

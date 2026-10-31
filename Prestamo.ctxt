@@ -1,5 +1,5 @@
 #BlueJ class context
-#Thu Oct 29 22:44:42 ART 2026
+#Fri Oct 30 19:11:19 ART 2026
 comment0.target=Prestamo
 comment0.text=\r\n Representa un pr\u00E9stamo de biblioteca, el cual incluye las fechas de retiro y devoluci\u00F3n,\r\n as\u00ED como la colecci\u00F3n de libros asociados.\r\n \r\n @author Lautaro Escalante\r\n @version 28/10/2026\r\n
 comment1.params=p_fechaR p_fechaDev
@@ -9,7 +9,7 @@ comment10.params=p_fecha
 comment10.target=void registrarFechaDevolucion(java.util.Calendar)
 comment10.text=\r\n Registra o actualiza la fecha de devoluci\u00F3n del pr\u00E9stamo.\r\n \r\n @param p_fecha Objeto Calendar que representa la fecha de devoluci\u00F3n a registrar.\r\n
 comment11.params=p_fecha
-comment11.target=boolean vencio(java.util.Calendar)
+comment11.target=boolean vencido(java.util.Calendar)
 comment11.text=\r\n Verifica si el pr\u00E9stamo ha vencido respecto a una fecha dada.\r\n \r\n @param p_fecha Objeto Calendar con la fecha contra la cual se eval\u00FAa el vencimiento.\r\n @return true si la fecha supera el plazo l\u00EDmite, false en caso contrario.\r\n
 comment12.target=java.lang.String toString()
 comment12.text=\r\n Retorna una representaci\u00F3n en cadena de caracteres del pr\u00E9stamo,\r\n mostrando las fechas, libro y socio asociados.\r\n \r\n @return String con los datos formateados del pr\u00E9stamo.\r\n

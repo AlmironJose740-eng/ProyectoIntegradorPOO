@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 /**
  * Write a description of class Biblioteca here.
  * 
@@ -76,42 +77,96 @@ public class Biblioteca
     }
 
     public boolean prestarLibro(Calendar p_fechaRetiro,Socio p_socio,Libro p_libro){
-        Libro l1;
-        Socio s1;
-        
-        Calendar devolucion=p_fechaRetiro;
-        devolucion.set(Calendar.DAY_OF_MONTH,devolucion.get(Calendar.DAY_OF_MONTH)+s1.getDiasPrestamo());
-        Prestamo p1= new Prestamo(p_fechaRetiro,devolucion,l1,s1);
-
-        Socio s1=this.buscarSocio(p_socio.getDni());
-
-        for(Libro l: this.getLibros()){
-            if(l.getTitulo()==p_libro.getTitulo()){
-                l1=l;
-            }
-        }
-
-        if(s1.soyDeLaClase().equalsIgnoreCase("Estudiante")){
-            if(l1 != null && s1.cantLibrosPrestados()<3 && s1.puedePedir() ){
-                s1.AgregarPrestamo(p1);
-                return true;
-            }
-        }else if(s1.soyDeLaClase().equalsIgnoreCase("Docente")){
-            if(l1 != null && s1.puedePedir()){
-                s1.AgregarPrestamo(p1);
-                return true;
-            }
-        }
-        
-        return false;
+       if(p_libro.prestado() || !p_socio.puedePedir())return false;
+       
+       Prestamo p=new Prestamo(p_fechaRetiro,p_socio,p_libro);
+       
+       p_socio.agregarPrestamo(p);
+       p_libro.agregarPrestamo(p);
+       return true;
     }
     
     
+    public void devolverLibro(Libro p_libro)throws LibroNoPrestadoException{
+        //prestado devuelve true si el libro esta prestado
+        if(p_libro.prestado()){
+        p_libro.ultimoPrestamo().registrarFechaDevolucion(new GregorianCalendar());
+        }else{
+            throw new LibroNoPrestadoException("El libro "+p_libro.getTitulo() +" no se puede devolver ya que se encuentra en la biblioteca");
+        }
+        
+        
+    }
     
+    
+    public int cantidadDeSociosPorTipo(String p_tipo){
+        int contador=0;
+        for(Socio s:this.getSocios()){
+            if(s.soyDeLaClase()==p_tipo){
+                contador++;
+            }
+        }
+        
+        return contador;
+    }
+    
+    public ArrayList<Prestamo> prestamosVencidos(){
+        ArrayList<Prestamo> vencidos=new ArrayList();
+        Calendar fechaHoy=new GregorianCalendar();
+        for(Libro l:this.getLibros()){
+            if(l.prestado()){
+                Prestamo p=l.ultimoPrestamo();
+                if(p.vencido(fechaHoy)){
+                    vencidos.add(p);
+                }
+            }
+        }
+        return vencidos;
+    }
+    
+    public ArrayList<Docente> docentesResponsables(){
+        ArrayList<Docente> responsables=new ArrayList();
+        for(Socio s:this.getSocios()){
+            if(s.soyDeLaClase().equalsIgnoreCase("Docente") && ((Docente)s).esResponsable()){
+                responsables.add((Docente)s);
+            }
+        }
+        
+        return responsables;
+    }
+    
+    public String quienTieneElLibro(Libro p_libro)throws LibroNoPrestadoException{
+        if(p_libro.prestado()){
+            return p_libro.ultimoPrestamo().getSocio().getNombre();
+        }
+        throw new LibroNoPrestadoException("El libro se encuentra en la biblioteca");
+    }
 
+    public Socio buscarSocio(int p_dni){
+        for(Socio s:this.getSocios()){
+            if(s.getDniSocio()==p_dni){
+                return s;
+            }
+        }
+        return null;
+    }
     
-    
-    
+    public String listaDeSocios(){
+        StringBuilder sd=new StringBuilder();
+        int num=1;
+        
+        sd.append("Lista Socios: \n");
+        
+        for(Socio s:this.getSocios()){
+            sd.append(num).append(")").append(s.toString()).append("\n");
+            num++;
+        }
+        
+        sd.append("******************************************************").append("\n");
+        sd.append("Cantidad de socios del tipo Estudiante:").append(this.cantidadDeSociosPorTipo("Estudiante")).append("\n");
+        sd.append("Cantidad de socios del tipo Docente:").append(this.cantidadDeSociosPorTipo("docente")).append("\n");
+        sd.append("******************************************************").append("\n");
+    }
     
     
     

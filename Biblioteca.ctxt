@@ -1,5 +1,5 @@
 #BlueJ class context
-#Thu Oct 29 20:33:16 ART 2026
+#Fri Oct 30 21:00:18 ART 2026
 comment0.target=Biblioteca
 comment0.text=\r\n Write a description of class Biblioteca here.\r\n \r\n @author Almiron Jose, Gomez Diego, Almiron Franco\r\n @version (a version number or a date)\r\n
 comment1.params=p_nombre p_libros p_socios
@@ -12,8 +12,19 @@ comment12.params=p_dniSocio p_nombre p_area
 comment12.target=void nuevoSocioDocente(int, java.lang.String, java.lang.String)
 comment13.params=p_fechaRetiro p_socio p_libro
 comment13.target=boolean prestarLibro(java.util.Calendar, Socio, Libro)
+comment14.params=p_libro
+comment14.target=void devolverLibro(Libro)
+comment15.params=p_tipo
+comment15.target=int cantidadDeSociosPorTipo(java.lang.String)
+comment16.target=java.util.ArrayList prestamosVencidos()
+comment17.target=java.util.ArrayList docentesResponsables()
+comment18.params=p_libro
+comment18.target=java.lang.String quienTieneElLibro(Libro)
+comment19.params=p_dni
+comment19.target=Socio buscarSocio(int)
 comment2.params=p_nombre
 comment2.target=Biblioteca(java.lang.String)
+comment20.target=java.lang.String listaDeSocios()
 comment3.params=p_nombre p_libro p_socio
 comment3.target=Biblioteca(java.lang.String, Libro, Socio)
 comment4.params=p_nombre
@@ -25,4 +36,4 @@ comment6.target=void setSocios(java.util.ArrayList)
 comment7.target=java.lang.String getNombre()
 comment8.target=java.util.ArrayList getLibros()
 comment9.target=java.util.ArrayList getSocios()
-numComments=14
+numComments=21
