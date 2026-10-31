@@ -7,12 +7,12 @@ import java.util.*;
  * así como la colección de libros asociados.
  * 
  * @author Lautaro Escalante
- * @version 28/10/2026 hs 23:10
+ * @version 28/10/2026
  */
 public class Prestamo{
     private Calendar fechaRetiro;
     private Calendar fechaDevolucion;
-    private ArrayList<Libro> Libro; 
+    //private ArrayList<Libro> Libro; 
     private Socio libroSocio; 
     private Libro libros;
     
@@ -25,10 +25,10 @@ public class Prestamo{
      */
     
     
-    // == null
+    //
     // socio 
     //constructor general 
-    /**public Prestamo(Calendar p_fechaR,Calendar p_fechaDev){
+    /*public Prestamo(Calendar p_fechaR,Calendar p_fechaDev){
         this.setFechaRetiro(p_fechaR);
         this.setFechaDevolucion(p_fechaDev);
         this.setLibros(new ArrayList<Libro>()); 
@@ -38,16 +38,15 @@ public class Prestamo{
     
     //constructor recibe una lista de libros
     public Prestamo(Calendar p_fechaR, ArrayList<Libro> p_listaLibro){
-        this.setFechaRetiro(p_fechaR);
+        this.setFechaRetiro(null);
         this.setLibros(p_listaLibro); 
     }
-    
-    //constructor que recibe la fecha de devolucionb de un libro y lo asienta en socio
     */
-   
+    //constructor que recibe la fecha de devolucionb de un libro y lo asienta en socio
+    
     //constructor recibe un objeto libro 
     public Prestamo(Socio p_socio,Calendar p_fechaDev, Libro p_libro){
-        this.setFechaDevolucion(p_fechaDev);
+        this.setFechaDevolucion(null);
         this.setSocio(p_socio); 
         // this.setListaLibro(new ArrayList<Libro>()); 
          this.setLibro(p_libro);
@@ -111,7 +110,7 @@ public class Prestamo{
      * 
      * @return ArrayList de objetos Libro.
      */
-    public ArrayList<Libro> getLibros(){
+   /* public ArrayList<Libro> getLibros(){
         return this.Libro;
     }
     
@@ -120,21 +119,21 @@ public class Prestamo{
      * 
      * @param p_libros ArrayList de objetos Libro a asignar.
      */
-    private void setLibros(ArrayList<Libro> p_libros){
+    /*private void setLibros(ArrayList<Libro> p_libros){
         this.Libro=p_libros; 
-    }
+    }*/
     
     //metodos 
     
-    /**
+    /*/**
      * Agrega un libro a la lista de libros del préstamo.
      * 
      * @param p_libro Objeto Libro a agregar.
      * @return true si se agregó correctamente, false en caso contrario.
      */
-    public boolean AgregarLibro(Libro p_libro){
+    /*public boolean AgregarLibro(Libro p_libro){
         return this.getLibros().add(p_libro);
-    }
+    }/*
     
     /**
      * Quita un libro de la lista de libros del préstamo.
@@ -142,7 +141,7 @@ public class Prestamo{
      * @param p_libro Objeto Libro a quitar.
      * @return true si se removió correctamente, false en caso contrario.
      */
-    public boolean QuitarLibro(Libro p_libro){
+    /*public boolean QuitarLibro(Libro p_libro){
         if(this.getLibros().size() >= 1 && this.getLibros().contains(p_libro)){
             
                 return this.getLibros().remove(p_libro);
@@ -151,7 +150,7 @@ public class Prestamo{
             return false ; 
         }
     
-    }
+    }*/
     
      
     /**
@@ -170,15 +169,16 @@ public class Prestamo{
      * @return true si la fecha supera el plazo límite, false en caso contrario.
      */
     public boolean vencido(Calendar p_fecha){
-        Socio Aux=this.getSocio();
         
-        int diaTotal=this.getFechaRetiro().get(Calendar.DAY_OF_YEAR) + Aux.getDiasPrestamo();
+        int diaTotal=this.getFechaRetiro().get(Calendar.DAY_OF_YEAR) + getSocio().getDiasPrestamo();
         
         if(p_fecha.get(Calendar.DAY_OF_YEAR) > diaTotal ){
             return true;
+        }else {
+            return false; 
         }
         
-        return false;
+        
     }
     
     /**
@@ -206,17 +206,17 @@ public class Prestamo{
         */
          
        
-       String LibroPrestado="";
-       if(this.getLibros().isEmpty() ){
+       /*String LibroPrestado="";
+       if(this.getLibro().isEmpty() ){
            LibroPrestado="\n ->no posee ningun libro\n"; 
        }else{
-       for(Libro e: this.getLibros()){
+       for(Libro e: this.getLibro()){
            LibroPrestado +="\n ->"+e.getTitulo();
        }
       }
+      */
         
-        
-        return "\nRetiro: " + anio + "/" + mes + "/" + dia +"/" +"-\tDevolucion:"+anioDev+"/"+mesDev+"/"+diaDev+"\nLibro:"+LibroPrestado+"\nSocio:"+getSocio().getNombre();
+        return "\nRetiro: " + anio + "/" + mes + "/" + dia +"/" +"-\tDevolucion:"+anioDev+"/"+mesDev+"/"+diaDev+"\nLibro:"+this.getLibro().getTitulo()+"\nSocio:"+getSocio().getNombre();
     }
     
     
