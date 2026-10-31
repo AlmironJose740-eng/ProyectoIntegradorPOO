@@ -1,18 +1,18 @@
 #BlueJ class context
-#Thu Oct 29 19:35:52 ART 2026
+#Sat Oct 31 10:49:19 ART 2026
 comment0.target=Socio
-comment0.text=\r\n Representa una clase abstracta Socio que almacena la informaci\u00F3n personal\r\n y la gesti\u00F3n de pr\u00E9stamos de un socio de la biblioteca.\r\n \r\n @author Lautaro Escalante\r\n @version 28/10/20206\r\n
+comment0.text=\r\n Representa una clase abstracta Socio que almacena la informaci\u00F3n personal\r\n y la gesti\u00F3n de pr\u00E9stamos de un socio de la biblioteca.\r\n \r\n @author Lautaro Escalante\r\n @version 30/10/2026 23\:13\r\n
 comment1.params=p_dni p_nombre
 comment1.target=Socio(int, java.lang.String)
 comment1.text=\r\n Constructor para la clase abstracta Socio que inicializa el DNI, nombre,\r\n d\u00EDas de pr\u00E9stamo y crea una lista de pr\u00E9stamos vac\u00EDa.\r\n \r\n @param p_dni N\u00FAmero de DNI del socio.\r\n @param p_nombre Nombre del socio.\r\n @param p_dias Cantidad de d\u00EDas permitidos de pr\u00E9stamo.\r\n
 comment10.params=p_prestamo
-comment10.target=void setListaPrestamos(java.util.ArrayList)
+comment10.target=void setPrestamos(java.util.ArrayList)
 comment10.text=\r\n Establece la lista de pr\u00E9stamos del socio.\r\n \r\n @param p_prestamo ArrayList de objetos Prestamo a asignar.\r\n
 comment11.params=p_prestamo
-comment11.target=boolean AgregarPrestamo(Prestamo)
+comment11.target=boolean agregarPrestamo(Prestamo)
 comment11.text=\r\n Agrega un pr\u00E9stamo a la lista de pr\u00E9stamos del socio.\r\n \r\n @param p_prestamo Objeto Prestamo a agregar.\r\n @return true si se agreg\u00F3 correctamente, false en caso contrario.\r\n
 comment12.params=p_prestamo
-comment12.target=boolean QuitarPrestamo(Prestamo)
+comment12.target=boolean quitarPrestamo(Prestamo)
 comment12.text=\r\n Quita un pr\u00E9stamo de la lista de pr\u00E9stamos del socio.\r\n \r\n @param p_prestamo Objeto Prestamo a quitar.\r\n @return true si se removi\u00F3 correctamente, false en caso contrario.\r\n
 comment13.target=int cantLibrosPrestados()
 comment13.text=\r\n Calcula la cantidad total de libros que el socio tiene prestados\r\n a trav\u00E9s de todos sus pr\u00E9stamos activos o registrados.\r\n \r\n @return int con el total de libros prestados.\r\n
@@ -39,6 +39,6 @@ comment7.text=\r\n Retorna los d\u00EDas de pr\u00E9stamo permitidos para el soc
 comment8.params=p_dias
 comment8.target=void setDiasPrestamo(int)
 comment8.text=\r\n Establece los d\u00EDas de pr\u00E9stamo para el socio.\r\n \r\n @param p_dias Nueva cantidad de d\u00EDas de pr\u00E9stamo.\r\n
-comment9.target=java.util.ArrayList getListaPrestamos()
+comment9.target=java.util.ArrayList getPrestamos()
 comment9.text=\r\n Retorna la lista de pr\u00E9stamos asociados al socio.\r\n \r\n @return ArrayList de objetos Prestamo.\r\n
 numComments=17
