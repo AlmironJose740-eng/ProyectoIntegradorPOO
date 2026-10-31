@@ -87,6 +87,14 @@ public class Libro {
     public ArrayList<Prestamo> getPrestamos() {
         return this.prestamos;
     }
+    
+    public boolean agregarPrestamo(Prestamo p_prestamo){
+        return this.getPrestamos().add(p_prestamo);
+    }
+    
+    public boolean quitarPrestamo(Prestamo p_prestamo){
+        return this.getPrestamos().remove(p_prestamo);
+    }
 
     /**
      * Verifica si el libro se encuentra actualmente prestado,
