@@ -149,7 +149,7 @@ public abstract class Socio{
         int cantidad=0;
         
         for(Prestamo e: this.getPrestamos()){
-            cantidad += e.getLibros().size();
+            cantidad ++; 
         }
         
         return cantidad;
