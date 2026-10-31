@@ -1,9 +1,11 @@
+package biblioteca;  
+
 /**
  * representa a un socio de tipo Docente en el sistema de la biblioteca
  * @author Gonzalo Uriel Castillo
  * @version 1
- */ 
- 
+ */
+
 public class Docente extends Socio {
     
     //atributos privados
@@ -46,10 +48,6 @@ public class Docente extends Socio {
 
     @Override
     public boolean puedePedir() {
-        if(this.esResponsable()){
-            return true;
-        }else{
-            return false;
-        }
+        return super.puedePedir();
     }
 }
