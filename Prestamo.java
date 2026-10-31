@@ -5,12 +5,14 @@ import java.util.*;
  * así como la colección de libros asociados.
  * 
  * @author Lautaro Escalante
- * @version 28/10/2026
+ * @version 30/10/2026
  */
 public class Prestamo{
     private Calendar fechaRetiro;
     private Calendar fechaDevolucion;
     private ArrayList<Libro> listaLibro; 
+    private Socio libroSocio; 
+   
     
     /**
      * Constructor para la clase Prestamo que inicializa las fechas de retiro y devolución,
@@ -19,10 +21,34 @@ public class Prestamo{
      * @param p_fechaR Objeto Calendar que representa la fecha de retiro.
      * @param p_fechaDev Objeto Calendar que representa la fecha de devolución.
      */
+    
     public Prestamo(Calendar p_fechaR,Calendar p_fechaDev){
         this.setFechaRetiro(p_fechaR);
         this.setFechaDevolucion(p_fechaDev);
-        this.listaLibro= new ArrayList<>(); 
+        this.setListaLibro(new ArrayList<Libro>()); 
+    }
+    
+    //constructor para pedir un libro solo se  registra la fecha de retiro 
+    public Prestamo(Calendar p_fechaR){
+        this.setFechaRetiro(p_fechaR);
+       this.setListaLibro(new ArrayList<Libro>()); 
+    }
+    
+    //constructor que recibe la fecha de devolucionb de un libro y lo asienta en socio 
+    public Prestamo(Calendar p_fechaDev,Socio p_socio){
+        this.setFechaDevolucion(p_fechaDev);
+        this.setSocio(p_socio); 
+       this.setListaLibro(new ArrayList<Libro>()); 
+    }
+    
+   
+    
+    
+    public Socio getSocio(){
+        return this.libroSocio;
+    }
+    private void setSocio(Socio p_socio){
+        this.libroSocio=p_socio;
     }
     
     /**
@@ -98,7 +124,14 @@ public class Prestamo{
      * @return true si se removió correctamente, false en caso contrario.
      */
     public boolean QuitarLibro(Libro p_libro){
-        return this.getListaLibro().remove(p_libro);
+        if(this.getListaLibro().size() >= 1 && this.getListaLibro().contains(p_libro)){
+            
+                return this.getListaLibro().remove(p_libro);
+     
+        }else{
+            return false ; 
+        }
+    
     }
     
      
@@ -117,15 +150,17 @@ public class Prestamo{
      * @param p_fecha Objeto Calendar con la fecha contra la cual se evalúa el vencimiento.
      * @return true si la fecha supera el plazo límite, false en caso contrario.
      */
-    public boolean vencio(Calendar p_fecha){
-        Socio Aux;
-        int diaTotal=this.getFechaRetiro().get(Calendar.DAY_OF_YEAR) + Aux.getDiasPrestamo();
+    public boolean vencido(Calendar p_fecha){
+        
+        int diaTotal=this.getFechaRetiro().get(Calendar.DAY_OF_YEAR) + getSocio().getDiasPrestamo();
         
         if(p_fecha.get(Calendar.DAY_OF_YEAR) > diaTotal ){
             return true;
+        }else {
+            return false; 
         }
         
-        return false;
+        
     }
     
     /**
@@ -143,9 +178,27 @@ public class Prestamo{
         int mesDev=this.getFechaDevolucion().get(Calendar.MONTH)+1;
         int anioDev=this.getFechaDevolucion().get(Calendar.YEAR);
         
-        Libro libro;
-        Socio socio;
-        return "\nRetiro: " + anio + "/" + mes + "/" + dia +"/" +"-\tDevolucion:"+anioDev+"/"+mesDev+"/"+diaDev+"\nLibro:"+libro.getTitulo()+"\nSocio:"+socio.getNombre();
+        //si tiene un libro
+        /*String nombreLibro="";
+        if(! this.getListaLibro().isEmpty() && this.getListaLibro().size() >= 0){
+            nombreLibro=this.getListaLibro().get(0).getTitulo();
+        }else{
+            nombreLibro=" Sin libro";
+        }
+        */
+         
+       
+       String LibroPrestado="";
+       if(this.getListaLibro().isEmpty() ){
+           LibroPrestado="\n ->no posee ningun libro\n"; 
+       }else{
+       for(Libro e: this.getListaLibro()){
+           LibroPrestado +="\n ->"+e.getTitulo();
+       }
+      }
+        
+        
+        return "\nRetiro: " + anio + "/" + mes + "/" + dia +"/" +"-\tDevolucion:"+anioDev+"/"+mesDev+"/"+diaDev+"\nLibro:"+LibroPrestado+"\nSocio:"+getSocio().getNombre();
     }
     
     
