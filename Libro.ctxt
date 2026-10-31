@@ -1,5 +1,9 @@
 #BlueJ class context
+<<<<<<< HEAD
 #Sat Oct 31 11:37:38 ART 2026
+=======
+#Sat Oct 31 10:49:19 ART 2026
+>>>>>>> 4171dd26588452cddace4ef7b939c1bf7ed5bfe3
 comment0.target=Libro
 comment0.text=\r\n Representa un libro de la biblioteca, almacenando sus datos\r\n y el historial de pr\u00E9stamos realizados.\r\n\r\n @author Valentin Aguirre\r\n @version 1.0\r\n
 comment1.params=p_titulo p_edicion p_editorial p_anio

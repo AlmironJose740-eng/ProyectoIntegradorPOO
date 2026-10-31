@@ -1,5 +1,5 @@
 #BlueJ class context
-#Thu Oct 29 18:46:46 ART 2026
+#Sat Oct 31 10:49:19 ART 2026
 comment0.target=Docente
 comment0.text=\r\n representa a un socio de tipo Docente en el sistema de la biblioteca\r\n @author Gonzalo Uriel Castillo\r\n @version 1\r\n
 comment1.params=p_dniSocio p_nombre p_area
