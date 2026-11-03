@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.*; 
+
 /**
  * Representa un libro de la biblioteca, almacenando sus datos
  * y el historial de préstamos realizados.
@@ -28,24 +29,6 @@ public class Libro {
         this.setEditorial(p_editorial);
         this.setAnio(p_anio);
         this.setPrestamos(new ArrayList<Prestamo>());
-    }
-
-    /**
-     * Constructor que inicializa los datos del libro junto con una lista
-     * de préstamos recibida como parámetro.
-     *
-     * @param p_titulo Título del libro.
-     * @param p_edicion Edición del libro.
-     * @param p_editorial Editorial que publicó el libro.
-     * @param p_anio Año de publicación del libro.
-     * @param p_prestamos Lista de préstamos del libro.
-     */
-    public Libro(String p_titulo, int p_edicion, String p_editorial, int p_anio, ArrayList<Prestamo> p_prestamos) {
-        this.setTitulo(p_titulo);
-        this.setEdicion(p_edicion);
-        this.setEditorial(p_editorial);
-        this.setAnio(p_anio);
-        this.setPrestamos(p_prestamos);
     }
 
     private void setTitulo(String p_titulo) {
@@ -86,14 +69,6 @@ public class Libro {
 
     public ArrayList<Prestamo> getPrestamos() {
         return this.prestamos;
-    }
-    
-    public boolean agregarPrestamo(Prestamo p_prestamo){
-        return this.getPrestamos().add(p_prestamo);
-    }
-    
-    public boolean quitarPrestamo(Prestamo p_prestamo){
-        return this.getPrestamos().remove(p_prestamo);
     }
 
     /**
