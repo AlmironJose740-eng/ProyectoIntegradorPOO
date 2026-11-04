@@ -29,6 +29,7 @@ public abstract class Socio{
         this.setDiasPrestamo(0);
         this.setPrestamos(new ArrayList<Prestamo>());
    }
+   
     public Socio(int p_dni,String p_nombre,int p_dias){
         this.setDniSocio(p_dni);
         this.setNombre(p_nombre);
