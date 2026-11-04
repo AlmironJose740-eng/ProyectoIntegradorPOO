@@ -169,15 +169,31 @@ public class Prestamo{
      * @return true si la fecha supera el plazo límite, false en caso contrario.
      */
     public boolean vencido(Calendar p_fecha){
-        
+        /*
         int diaTotal=this.getFechaRetiro().get(Calendar.DAY_OF_YEAR) + getSocio().getDiasPrestamo();
         
         if(p_fecha.get(Calendar.DAY_OF_YEAR) > diaTotal ){
             return true;
         }else {
             return false; 
-        }
+        }*/
         
+        
+        
+        //Calendar fecha1 = this.getFechaRetiro().add(Calendar.DAY_OF_MONTH, getSocio().getDiasPrestamo()); 
+        
+        
+        Calendar fecha = this.getFechaRetiro();
+        int Dias =this.getSocio().getDiasPrestamo();
+        fecha.add(Calendar.DAY_OF_MONTH,Dias);
+        
+        
+        
+        if(p_fecha.after(fecha)){
+            return true;
+        }else{
+            return false; 
+       }
         
     }
     
