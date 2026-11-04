@@ -78,15 +78,11 @@ public class Libro {
      * @return true si el libro está prestado o false si está disponible.
      */
     public boolean prestado() {
-        //consulta el ultimo libro prestamo registrado
-        if (this.ultimoPrestamo() == null) {
-            return false; //el libro nunca fue prestado
-        } else { //existe almenos un prestamo registrado
-            if (this.ultimoPrestamo().getFechaDevolucion() == null) { //si la fecha es null entonces no registro la devolucion del libro
-                return true; //si el libro esta prestado
-            } else {
-                return false; //si no es null significa que el libro ya fue devuelto asi que esta disponible
-            }
+        //si el libro nunca tuvo un prestamo registrado o si ya tiene una fecha de devolucion
+        if(this.ultimoPrestamo() == null || this.ultimoPrestamo().getFechaDevolucion() != null){
+            return false; //libro no prestado
+        } else{
+            return true; //libro prestado
         }
     }
 

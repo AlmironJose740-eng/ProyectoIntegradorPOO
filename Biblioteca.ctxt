@@ -1,5 +1,5 @@
 #BlueJ class context
-#Wed Nov 04 20:45:48 ART 2026
+#Wed Nov 04 19:44:41 ART 2026
 comment0.target=Biblioteca
 comment0.text=\r\n Write a description of class Biblioteca here.\r\n \r\n @author Almiron Jose, Gomez Diego, Almiron Franco\r\n @version (a version number or a date)\r\n
 comment1.params=p_nombre p_libros p_socios
