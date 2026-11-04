@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;  
 
 /**
  * Representa una clase abstracta Socio que almacena la información personal
@@ -171,9 +173,16 @@ public abstract class Socio{
     * @return false por defecto, destinado a ser sobrescrito en las subclases.
     */
    public boolean puedePedir(){
-        //aca pongo false dado que puedePedir es un metodo que es heredado a docente y estudiante por lo tanto cada sub clase 
-        // la debe re escribir e implementar 
-        return false;
+       // vencimiento de un libro 20 dias + despues del retiro osea que si pidio el 03 vence el 23 
+       
+       for(Prestamo e: this.getPrestamos()){
+        
+          if( e.vencido(e.getFechaDevolucion())  != true ){
+              return true; 
+          }
+       }
+       
+       return false; 
    }
    
    /**
