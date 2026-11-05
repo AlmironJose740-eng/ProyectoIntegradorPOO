@@ -172,16 +172,28 @@ public abstract class Socio{
    public boolean puedePedir(){
        // vencimiento de un libro 20 dias + despues del retiro osea que si pidio el 03 vence el 23 
        
-       for(Prestamo e: this.getPrestamos()){
+       /*for(Prestamo e: this.getPrestamos()){
         
            if(e.getFechaDevolucion() == null){
                return true; 
            }else if( e.vencido(e.getFechaDevolucion())  != true ){
               return true; 
           }
+       }*/
+       
+       
+       
+       Calendar hoy=Calendar.getInstance();
+       for(Prestamo e: this.getPrestamos()){
+           if(e.getFechaDevolucion()==null && e.vencido(hoy)){
+               return false;
+           }
        }
        
-       return false; 
+       
+       
+       
+       return true; 
    }
    
    /**
