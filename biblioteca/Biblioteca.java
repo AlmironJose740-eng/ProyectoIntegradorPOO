@@ -1,3 +1,4 @@
+package biblioteca;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -84,7 +85,8 @@ public class Biblioteca
         if(!p_libro.prestado() && !p_socio.puedePedir()){
             Prestamo p=new Prestamo(p_socio,p_fechaRetiro,p_libro);
             p_socio.agregarPrestamo(p);
-            p_libro.agregarPrestamo(p);
+            p_libro.getPrestamos().add(p);
+            //p_libro.agregarPrestamo(p);
             return true;
         }
         return false;
