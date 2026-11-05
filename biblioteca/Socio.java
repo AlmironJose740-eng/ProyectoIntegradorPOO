@@ -122,7 +122,7 @@ public abstract class Socio{
     * @return true si se agregó correctamente, false en caso contrario.
     */
    public boolean agregarPrestamo(Prestamo p_prestamo){
-       if(this.getPrestamos().contains(p_prestamo)){
+       if(!this.getPrestamos().contains(p_prestamo)){
         return this.getPrestamos().add(p_prestamo);
        }
        return false ;

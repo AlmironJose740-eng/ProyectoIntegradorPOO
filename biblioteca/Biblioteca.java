@@ -82,7 +82,7 @@ public class Biblioteca
     }
 
     public boolean prestarLibro(Calendar p_fechaRetiro,Socio p_socio,Libro p_libro){
-        if(!p_libro.prestado() && !p_socio.puedePedir()){
+        if(!p_libro.prestado() && p_socio.puedePedir()){
             Prestamo p=new Prestamo(p_socio,p_fechaRetiro,p_libro);
             p_socio.agregarPrestamo(p);
             p_libro.getPrestamos().add(p);
@@ -167,7 +167,7 @@ public class Biblioteca
 
         sd.append("******************************************************").append("\n");
         sd.append("Cantidad de socios del tipo Estudiante:").append(this.cantidadDeSociosPorTipo("Estudiante")).append("\n");
-        sd.append("Cantidad de socios del tipo Docente:").append(this.cantidadDeSociosPorTipo("docente")).append("\n");
+        sd.append("Cantidad de socios del tipo Docente:").append(this.cantidadDeSociosPorTipo("Docente")).append("\n");
         sd.append("******************************************************").append("\n");
 
         return sd.toString();

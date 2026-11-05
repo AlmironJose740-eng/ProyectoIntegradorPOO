@@ -1,7 +1,12 @@
 #BlueJ class context
-#Thu Nov 05 01:15:46 ART 2026
+#Thu Nov 05 20:10:17 ART 2026
 comment0.target=GestionBiblioteca
-comment0.text=\r\n Write a description of class GestionBiblioteca here.\r\n \r\n @author Todos \r\n @version (a version number or a date)\r\n
 comment1.params=args
 comment1.target=void main(java.lang.String[])
-numComments=2
+comment2.params=b
+comment2.target=void cargarSocios(Biblioteca)
+comment3.params=b
+comment3.target=void cargarLibros(Biblioteca)
+comment4.params=b
+comment4.target=void probarPrestamos(Biblioteca)
+numComments=5

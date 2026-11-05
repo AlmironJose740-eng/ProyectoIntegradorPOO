@@ -1,9 +1,5 @@
 #BlueJ class context
-<<<<<<< Updated upstream:biblioteca/Biblioteca.ctxt
-#Thu Nov 05 01:15:45 ART 2026
-=======
-#Sat Oct 31 12:11:37 ART 2026
->>>>>>> Stashed changes:Biblioteca.ctxt
+#Thu Nov 05 20:09:43 ART 2026
 comment0.target=Biblioteca
 comment0.text=\r\n Write a description of class Biblioteca here.\r\n \r\n @author Almiron Jose, Gomez Diego, Almiron Franco\r\n @version (a version number or a date)\r\n
 comment1.params=p_nombre p_libros p_socios
