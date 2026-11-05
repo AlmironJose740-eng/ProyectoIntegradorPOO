@@ -13,7 +13,7 @@ public abstract class Socio{
    private int dniSocio;
    private String nombre;
    protected int diasPrestamo;
-   private ArrayList <Prestamo> Prestamos ;
+   private ArrayList <Prestamo> prestamos ;
    
    /**
     * Constructor para la clase abstracta Socio que inicializa el DNI, nombre,
@@ -23,12 +23,13 @@ public abstract class Socio{
     * @param p_nombre Nombre del socio.
     * @param p_dias Cantidad de días permitidos de préstamo.
     */
- public Socio(int p_dni,String p_nombre){
+   /*public Socio(int p_dni,String p_nombre){
         this.setDniSocio(p_dni);
         this.setNombre(p_nombre);
         this.setDiasPrestamo(0);
         this.setPrestamos(new ArrayList<Prestamo>());
-   }
+   }*/
+   
     public Socio(int p_dni,String p_nombre,int p_dias){
         this.setDniSocio(p_dni);
         this.setNombre(p_nombre);
@@ -98,7 +99,7 @@ public abstract class Socio{
     * @return ArrayList de objetos Prestamo.
     */
    public ArrayList<Prestamo> getPrestamos(){
-        return this.Prestamos; 
+        return this.prestamos; 
    }
    
    /**
@@ -107,7 +108,7 @@ public abstract class Socio{
     * @param p_prestamo ArrayList de objetos Prestamo a asignar.
     */
    private void setPrestamos(ArrayList <Prestamo> p_prestamo){
-        this.Prestamos=p_prestamo; 
+        this.prestamos=p_prestamo; 
    }
    
    // metodos 
@@ -148,11 +149,7 @@ public abstract class Socio{
     */
    public int cantLibrosPrestados(){
         
-        int cantidad=0;
-        
-        for(Prestamo e: this.getPrestamos()){
-            cantidad ++; 
-        }
+        int cantidad = this.getPrestamos().size();
         
         return cantidad;
    }
@@ -177,7 +174,9 @@ public abstract class Socio{
        
        for(Prestamo e: this.getPrestamos()){
         
-          if( e.vencido(e.getFechaDevolucion())  != true ){
+           if(e.getFechaDevolucion() == null){
+               return true; 
+           }else if( e.vencido(e.getFechaDevolucion())  != true ){
               return true; 
           }
        }
