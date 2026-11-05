@@ -1,0 +1,7 @@
+#BlueJ class context
+#Thu Nov 05 15:01:57 ART 2026
+comment0.target=Conexion
+comment1.target=java.sql.Connection obtener()
+comment2.target=void probar()
+comment3.target=void mostrarClasspath()
+numComments=4
