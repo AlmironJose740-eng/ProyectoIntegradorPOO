@@ -46,12 +46,15 @@ public class Prestamo{
     //constructor que recibe la fecha de devolucionb de un libro y lo asienta en socio
     
     //constructor recibe un objeto libro 
-    public Prestamo(Socio p_socio,Calendar p_fechaDev, Libro p_libro){
-        this.setFechaDevolucion(null);
+    public Prestamo(Socio p_socio,Calendar p_fechaDev, Calendar p_Retiro, Libro p_libro){
+        this.setFechaDevolucion(p_fechaDev);
         this.setSocio(p_socio); 
+        this.setFechaRetiro(p_Retiro);
         // this.setListaLibro(new ArrayList<Libro>()); 
          this.setLibro(p_libro);
     }
+    
+    
     
    
     public Libro getLibro(){
@@ -76,6 +79,7 @@ public class Prestamo{
      * @return Objeto Calendar con la fecha de retiro.
      */
     public Calendar getFechaRetiro(){
+        
         return this.fechaRetiro;
     }
     
@@ -85,6 +89,7 @@ public class Prestamo{
      * @param p_fecha Objeto Calendar con la nueva fecha de retiro.
      */
     private void setFechaRetiro(Calendar p_fecha){
+        this.fechaRetiro=null; 
         this.fechaRetiro=p_fecha;
     }
     
@@ -169,27 +174,14 @@ public class Prestamo{
      * @param p_fecha Objeto Calendar con la fecha contra la cual se evalúa el vencimiento.
      * @return true si la fecha supera el plazo límite, false en caso contrario.
      */
-    public boolean vencido(Calendar p_fecha){
-        /*
-        int diaTotal=this.getFechaRetiro().get(Calendar.DAY_OF_YEAR) + getSocio().getDiasPrestamo();
-        
-        if(p_fecha.get(Calendar.DAY_OF_YEAR) > diaTotal ){
-            return true;
-        }else {
-            return false; 
-        }*/
-        
-        
-        
-        //Calendar fecha1 = this.getFechaRetiro().add(Calendar.DAY_OF_MONTH, getSocio().getDiasPrestamo()); 
-        
+    public boolean vencido(Calendar p_fecha){  
         
         Calendar fecha = this.getFechaRetiro();
         int Dias =this.getSocio().getDiasPrestamo();
         fecha.add(Calendar.DAY_OF_MONTH,Dias);
         
         
-        
+      // verifrica si la fecha pasada como parametro esta despues de la variable "fecha" si es asi retorna true= vencio, contrario false= no vencio 
         if(p_fecha.after(fecha)){
             return true;
         }else{
