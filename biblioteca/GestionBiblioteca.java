@@ -1,4 +1,5 @@
 package biblioteca;
+ 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -50,5 +51,7 @@ public class GestionBiblioteca {
         }
 
         System.out.println(b.listaDeSocios());
+        
+        System.out.println(b.listarDocentesResponsables()); 
     }
 }
