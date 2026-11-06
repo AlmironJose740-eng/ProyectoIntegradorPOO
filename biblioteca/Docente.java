@@ -1,5 +1,6 @@
 package biblioteca; 
-
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 /**
  * representa a un socio de tipo Docente en el sistema de la biblioteca
  * @author Gonzalo Uriel Castillo
@@ -33,8 +34,9 @@ public class Docente extends Socio {
     }
 
     public boolean esResponsable() {
+        Calendar fechahoy=new GregorianCalendar();
         for (Prestamo p : this.getPrestamos()) {
-            if (p.vencido(p.getFechaDevolucion())) {
+            if (p.vencido(fechahoy)) {
                 return false;
             }
         }

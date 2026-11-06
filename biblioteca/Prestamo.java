@@ -46,10 +46,10 @@ public class Prestamo{
     //constructor que recibe la fecha de devolucionb de un libro y lo asienta en socio
     
     //constructor recibe un objeto libro 
-    public Prestamo(Socio p_socio,Calendar p_fechaDev, Calendar p_Retiro, Libro p_libro){
-        this.setFechaDevolucion(p_fechaDev);
+    public Prestamo(Socio p_socio,Calendar p_Retiro, Libro p_libro){
+        this.setFechaDevolucion(null);
         this.setSocio(p_socio); 
-        this.setFechaRetiro(p_Retiro);
+        this.setFechaRetiro((Calendar) p_Retiro.clone());
         // this.setListaLibro(new ArrayList<Libro>()); 
          this.setLibro(p_libro);
     }
@@ -174,21 +174,11 @@ public class Prestamo{
      * @param p_fecha Objeto Calendar con la fecha contra la cual se evalúa el vencimiento.
      * @return true si la fecha supera el plazo límite, false en caso contrario.
      */
-    public boolean vencido(Calendar p_fecha){  
-        
-        Calendar fecha = this.getFechaRetiro();
-        int Dias =this.getSocio().getDiasPrestamo();
-        fecha.add(Calendar.DAY_OF_MONTH,Dias);
-        
-        
-      // verifrica si la fecha pasada como parametro esta despues de la variable "fecha" si es asi retorna true= vencio, contrario false= no vencio 
-        if(p_fecha.after(fecha)){
-            return true;
-        }else{
-            return false; 
-       }
-        
-    }
+    public boolean vencido(Calendar p_fecha){
+    Calendar vencimiento = (Calendar) this.getFechaRetiro().clone();
+    vencimiento.add(Calendar.DAY_OF_MONTH, this.getSocio().getDiasPrestamo());
+    return p_fecha.after(vencimiento);
+}
     
     /**
      * Retorna una representación en cadena de caracteres del préstamo,
