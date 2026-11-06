@@ -1,12 +1,11 @@
-package biblioteca; 
+package biblioteca;  
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-/**
- * representa a un socio de tipo Docente en el sistema de la biblioteca
- * @author Gonzalo Uriel Castillo
- * @version 1
- */
 
+/**
+ * Representa a un socio de tipo Docente en el sistema de la biblioteca.
+ * @author Gonzalo Uriel Castillo
+ * @version 1.0
+ */
 public class Docente extends Socio {
     
     //atributos privados
@@ -34,12 +33,21 @@ public class Docente extends Socio {
     }
 
     public boolean esResponsable() {
-        Calendar fechahoy=new GregorianCalendar();
+        Calendar hoy = Calendar.getInstance();
         for (Prestamo p : this.getPrestamos()) {
-            if (p.vencido(fechahoy)) {
+            Calendar fechaEvaluar;
+            
+            if (p.getFechaDevolucion() == null) {
+                fechaEvaluar = hoy;
+            } else {
+                fechaEvaluar = p.getFechaDevolucion();
+            }
+
+            if (p.vencido(fechaEvaluar)) {
                 return false;
             }
         }
+        
         return true;
     }
 
