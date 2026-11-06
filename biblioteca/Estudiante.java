@@ -34,6 +34,6 @@ public class Estudiante extends Socio {
 
     @Override
     public boolean puedePedir() {
-        return super.puedePedir() && this.cantLibrosPrestados() <= 3;
+        return super.puedePedir() && this.cantLibrosPrestados() < 3;
     }
 }
