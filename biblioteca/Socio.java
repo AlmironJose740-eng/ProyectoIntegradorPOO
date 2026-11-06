@@ -1,5 +1,4 @@
 package biblioteca;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -14,7 +13,7 @@ import java.util.Calendar;
 public abstract class Socio{
    private int dniSocio;
    private String nombre;
-   protected int diasPrestamo;
+   private  int diasPrestamo;
    private ArrayList <Prestamo> prestamos ;
    
    /**
@@ -121,8 +120,8 @@ public abstract class Socio{
     * @param p_prestamo Objeto Prestamo a agregar.
     * @return true si se agregó correctamente, false en caso contrario.
     */
-   public boolean agregarPrestamo(Prestamo p_prestamo){
-       if(!this.getPrestamos().contains(p_prestamo)){
+  public boolean agregarPrestamo(Prestamo p_prestamo){
+       if(this.getPrestamos().contains(p_prestamo)){
         return this.getPrestamos().add(p_prestamo);
        }
        return false ;
@@ -151,7 +150,15 @@ public abstract class Socio{
     */
    public int cantLibrosPrestados(){
         
-        int cantidad = this.getPrestamos().size();
+       // int cantidad = this.getPrestamos().size();
+        
+       int cantidad =0;
+        for(Prestamo e: this.getPrestamos()){
+            if(e.getFechaDevolucion() == null){
+                cantidad ++; 
+            }
+        }
+        
         
         return cantidad;
    }
@@ -163,7 +170,7 @@ public abstract class Socio{
     * @return String con los datos formateados del socio.
     */
    public String  toString(){
-        return "\nDNI: "+this.getDniSocio()+" || "+this.getNombre()+" Area "+this.soyDeLaClase()+"|| Libros Prestados: "+this.cantLibrosPrestados(); 
+        return "\nDNI: "+this.getDniSocio()+" || "+this.getNombre()+" ("+this.soyDeLaClase()+")  || Libros Prestados: "+this.cantLibrosPrestados(); 
    }
    
    /**
