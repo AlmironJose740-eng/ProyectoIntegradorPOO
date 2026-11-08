@@ -21,10 +21,10 @@ que el encadenamiento de 'String' sea mas legible.
 ## 👥 Autores
 * **Almiron, Jose**
 * **Gomez, Diego**
-* **,Gonzalo**
+* **Castillo,Gonzalo**
 * **Dargelos, Valen**
 * **Almiron, Franco**
-* **, Lautaro**
+* **Escalante, Lautaro**
 
 ---
 *Universidad Nacional del Nordeste (UNNE) - FaCENA*
