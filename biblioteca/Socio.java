@@ -24,12 +24,7 @@ public abstract class Socio{
     * @param p_nombre Nombre del socio.
     * @param p_dias Cantidad de días permitidos de préstamo.
     */
-   /*public Socio(int p_dni,String p_nombre){
-        this.setDniSocio(p_dni);
-        this.setNombre(p_nombre);
-        this.setDiasPrestamo(0);
-        this.setPrestamos(new ArrayList<Prestamo>());
-   }*/
+  
    
     public Socio(int p_dni,String p_nombre,int p_dias){
         this.setDniSocio(p_dni);
@@ -121,7 +116,7 @@ public abstract class Socio{
     * @return true si se agregó correctamente, false en caso contrario.
     */
   public boolean agregarPrestamo(Prestamo p_prestamo){
-       if(p_prestamo!=null && !this.getPrestamos().contains(p_prestamo)){
+       if(!this.getPrestamos().contains(p_prestamo)){
         return this.getPrestamos().add(p_prestamo);
        }
        return false ;
@@ -134,12 +129,9 @@ public abstract class Socio{
     * @return true si se removió correctamente, false en caso contrario.
     */
    public boolean quitarPrestamo(Prestamo p_prestamo){
-        if(this.getPrestamos().size() >= 1){
-            if(this.getPrestamos().contains(p_prestamo)){
-             return this.getPrestamos().remove(p_prestamo);
-            }
-       } 
-       return false; 
+       
+    return this.getPrestamos().remove(p_prestamo);
+        
    }
    
    /**
@@ -150,9 +142,7 @@ public abstract class Socio{
     */
    public int cantLibrosPrestados(){
         
-       // int cantidad = this.getPrestamos().size();
-        
-       int cantidad =0;
+       int cantidad = 0;
         for(Prestamo e: this.getPrestamos()){
             if(e.getFechaDevolucion() == null){
                 cantidad ++; 
@@ -170,7 +160,7 @@ public abstract class Socio{
     * @return String con los datos formateados del socio.
     */
    public String  toString(){
-        return "\nDNI: "+this.getDniSocio()+" || "+this.getNombre()+" ("+this.soyDeLaClase()+")  || Libros Prestados: "+this.cantLibrosPrestados(); 
+        return "DNI: "+this.getDniSocio()+" || "+this.getNombre()+" ("+this.soyDeLaClase()+")  || Libros Prestados: "+this.cantLibrosPrestados(); 
    }
    
    /**
@@ -179,29 +169,12 @@ public abstract class Socio{
     * @return false por defecto, destinado a ser sobrescrito en las subclases.
     */
    public boolean puedePedir(){
-       // vencimiento de un libro 20 dias + despues del retiro osea que si pidio el 03 vence el 23 
-       
-       /*for(Prestamo e: this.getPrestamos()){
-        
-           if(e.getFechaDevolucion() == null){
-               return true; 
-           }else if( e.vencido(e.getFechaDevolucion())  != true ){
-              return true; 
-          }
-       }*/
-       
-       
-       
        Calendar hoy=Calendar.getInstance();
        for(Prestamo e: this.getPrestamos()){
            if(e.getFechaDevolucion()==null && e.vencido(hoy)){
                return false;
            }
-       }
-       
-       
-       
-       
+        }    
        return true; 
    }
    
