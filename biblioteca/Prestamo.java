@@ -1,7 +1,6 @@
 package biblioteca;
+
 import java.util.Calendar;
-import java.util.GregorianCalendar;  
-import java.util.*;
 
 /**
  * Representa un préstamo de biblioteca, el cual incluye las fechas de retiro y devolución,
@@ -13,7 +12,6 @@ import java.util.*;
 public class Prestamo{
     private Calendar fechaRetiro;
     private Calendar fechaDevolucion;
-    //private ArrayList<Libro> Libro; 
     private Socio libroSocio; 
     private Libro libros;
     
@@ -26,31 +24,11 @@ public class Prestamo{
      */
     
     
-    //
-    // socio 
-    //constructor general 
-    /*public Prestamo(Calendar p_fechaR,Calendar p_fechaDev){
-        this.setFechaRetiro(p_fechaR);
-        this.setFechaDevolucion(p_fechaDev);
-        this.setLibros(new ArrayList<Libro>()); 
-    }
-    
-    //constructor para pedir un libro solo se  registra la fecha de retiro
-    
-    //constructor recibe una lista de libros
-    public Prestamo(Calendar p_fechaR, ArrayList<Libro> p_listaLibro){
-        this.setFechaRetiro(null);
-        this.setLibros(p_listaLibro); 
-    }
-    */
-    //constructor que recibe la fecha de devolucionb de un libro y lo asienta en socio
-    
-    //constructor recibe un objeto libro 
+  
     public Prestamo(Socio p_socio,Calendar p_Retiro, Libro p_libro){
         this.setFechaDevolucion(null);
         this.setSocio(p_socio); 
-        this.setFechaRetiro((Calendar) p_Retiro.clone());
-        // this.setListaLibro(new ArrayList<Libro>()); 
+        this.setFechaRetiro(p_Retiro);
          this.setLibro(p_libro);
     }
     
@@ -89,7 +67,6 @@ public class Prestamo{
      * @param p_fecha Objeto Calendar con la nueva fecha de retiro.
      */
     private void setFechaRetiro(Calendar p_fecha){
-        this.fechaRetiro=null; 
         this.fechaRetiro=p_fecha;
     }
     
@@ -111,52 +88,7 @@ public class Prestamo{
         this.fechaDevolucion=p_fechaDev;
     }
   
-    /**
-     * Retorna la lista de libros asociados al préstamo.
-     * 
-     * @return ArrayList de objetos Libro.
-     */
-   /* public ArrayList<Libro> getLibros(){
-        return this.Libro;
-    }
-    
-    /**
-     * Establece la lista de libros del préstamo.
-     * 
-     * @param p_libros ArrayList de objetos Libro a asignar.
-     */
-    /*private void setLibros(ArrayList<Libro> p_libros){
-        this.Libro=p_libros; 
-    }*/
-    
-    //metodos 
-    
-    /*/**
-     * Agrega un libro a la lista de libros del préstamo.
-     * 
-     * @param p_libro Objeto Libro a agregar.
-     * @return true si se agregó correctamente, false en caso contrario.
-     */
-    /*public boolean AgregarLibro(Libro p_libro){
-        return this.getLibros().add(p_libro);
-    }/*
-    
-    /**
-     * Quita un libro de la lista de libros del préstamo.
-     * 
-     * @param p_libro Objeto Libro a quitar.
-     * @return true si se removió correctamente, false en caso contrario.
-     */
-    /*public boolean QuitarLibro(Libro p_libro){
-        if(this.getLibros().size() >= 1 && this.getLibros().contains(p_libro)){
-            
-                return this.getLibros().remove(p_libro);
-     
-        }else{
-            return false ; 
-        }
-    
-    }*/
+   
     
      
     /**
@@ -175,10 +107,13 @@ public class Prestamo{
      * @return true si la fecha supera el plazo límite, false en caso contrario.
      */
     public boolean vencido(Calendar p_fecha){
-    Calendar vencimiento = (Calendar) this.getFechaRetiro().clone();
-    vencimiento.add(Calendar.DAY_OF_MONTH, this.getSocio().getDiasPrestamo());
-    return p_fecha.after(vencimiento);
-}
+        
+     Calendar fechaVencimiento = Calendar.getInstance(); 
+     fechaVencimiento.setTime(this.getFechaRetiro().getTime());
+     fechaVencimiento.add(Calendar.DAY_OF_MONTH,this.getSocio().getDiasPrestamo());
+    //true = vencio, false= no vencio 
+     return p_fecha.after(fechaVencimiento);  
+   }
     
     /**
      * Retorna una representación en cadena de caracteres del préstamo,
@@ -191,32 +126,18 @@ public class Prestamo{
         int mes= this.getFechaRetiro().get(Calendar.MONTH)+1;
         int anio=this.getFechaRetiro().get(Calendar.YEAR);
         
+        String RtaDevolucion= "No devuelto"; 
+         if(this.getFechaDevolucion() != null ){
         int diaDev=this.getFechaDevolucion().get(Calendar.DAY_OF_MONTH);
         int mesDev=this.getFechaDevolucion().get(Calendar.MONTH)+1;
         int anioDev=this.getFechaDevolucion().get(Calendar.YEAR);
         
-        //si tiene un libro
-        /*String nombreLibro="";
-        if(! this.getListaLibro().isEmpty() && this.getListaLibro().size() >= 0){
-            nombreLibro=this.getListaLibro().get(0).getTitulo();
-        }else{
-            nombreLibro=" Sin libro";
-        }
-        */
-         
-       
-       /*String LibroPrestado="";
-       if(this.getLibro().isEmpty() ){
-           LibroPrestado="\n ->no posee ningun libro\n"; 
-       }else{
-       for(Libro e: this.getLibro()){
-           LibroPrestado +="\n ->"+e.getTitulo();
+        RtaDevolucion = diaDev+"/"+mesDev+"/"+anioDev;
        }
-      }
-      */
         
-        return "\nRetiro: " + anio + "/" + mes + "/" + dia +"/" +"-\tDevolucion:"+anioDev+"/"+mesDev+"/"+diaDev+"\nLibro:"+this.getLibro().getTitulo()+"\nSocio:"+getSocio().getNombre();
+        
+        
+        
+        return "\nRetiro: " + anio + "/" + mes + "/" + dia +"-\tDevolucion:"+RtaDevolucion+"\nLibro:"+this.getLibro().getTitulo()+"\nSocio:"+getSocio().getNombre();
     }
-    
-    
 }
