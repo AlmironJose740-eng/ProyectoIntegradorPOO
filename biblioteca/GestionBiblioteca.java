@@ -1,5 +1,7 @@
 package biblioteca;
  
+
+ 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -38,20 +40,29 @@ public class GestionBiblioteca {
         }
         Libro libro1 = b.getLibros().get(0);
         Libro libro2 = b.getLibros().get(1);
+        Libro libroJava = b.getLibros().get(2);
 
         System.out.println("1. Estudiante (esperado true): " + b.prestarLibro(hoy, estudiante, libro1));
         System.out.println("2. Docente (esperado true): " + b.prestarLibro(hoy, docente, libro2));
         System.out.println("3. Libro ya prestado (esperado false): " + b.prestarLibro(hoy, docente, libro1));
+        
+        b.prestarLibro(hoy,estudiante,libroJava); 
 
         try {
-            System.out.println("libro1 lo tiene: " + b.quienTieneElLibro(libro1));
-            System.out.println("libro2 lo tiene: " + b.quienTieneElLibro(libro2));
+            System.out.println("libro 1 lo tiene: " + b.quienTieneElLibro(libro1));
+            System.out.println("libro 2 lo tiene: " + b.quienTieneElLibro(libro2));
+            System.out.println("Programando con JAVA lo tiene: " + b.quienTieneElLibro(libroJava));
         } catch (LibroNoPrestadoException e) {
             System.out.println(e.getMessage());
         }
 
-        System.out.println(b.listaDeSocios());
         
+        
+        
+        System.out.println("\nCantidad de socios de tipo Estudiante: " + b.cantidadDeSociosPorTipo("Estudiante"));
         System.out.println(b.listarDocentesResponsables()); 
+        System.out.println("\n" + b.listaDeSocios());
+        System.out.println("\n" + b.listaDeLibros()); 
+        
     }
 }
