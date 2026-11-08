@@ -41,6 +41,7 @@ public class GestionBiblioteca {
         Libro libro1 = b.getLibros().get(0);
         Libro libro2 = b.getLibros().get(1);
         Libro libroJava = b.getLibros().get(2);
+        Libro libro3=b.getLibros().get(3);
 
         System.out.println("1. Estudiante (esperado true): " + b.prestarLibro(hoy, estudiante, libro1));
         System.out.println("2. Docente (esperado true): " + b.prestarLibro(hoy, docente, libro2));
@@ -52,6 +53,7 @@ public class GestionBiblioteca {
             System.out.println("libro 1 lo tiene: " + b.quienTieneElLibro(libro1));
             System.out.println("libro 2 lo tiene: " + b.quienTieneElLibro(libro2));
             System.out.println("Programando con JAVA lo tiene: " + b.quienTieneElLibro(libroJava));
+            System.out.println("libro 3 lo tiene(esperado nadie)"+b.quienTieneElLibro(libro3));
         } catch (LibroNoPrestadoException e) {
             System.out.println(e.getMessage());
         }
